@@ -122,6 +122,8 @@ for sentence in sentences:
 ## Testing
 As mentioned earlier, after processing the program with the 6 provided sentences, we would obtain corresponding tree structures as outputs.
 
+```
+
 Parse tree for 'En hund spiser mat.':
               S                
       ________|__________       
@@ -177,3 +179,4 @@ Parse tree for 'Et fjell er h�yt.':
 Det       N        V      Adj 
  |        |        |       |   
  et     fjell      er     h�yt
+```
