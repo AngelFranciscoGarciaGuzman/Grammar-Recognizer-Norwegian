@@ -22,7 +22,7 @@ To test our CFG parser for Norwegian, we utilize six example sentences:
 1. "En hund spiser mat." - "A dog eats food."
 2. "Et hus er stort." - "A house is big."
 3. "En katt løper raskt." - "A cat runs quickly."
-4. "Solen varmer jorden." - "The sun warms the earth."
+4. "En hund løper raskt." - "A dog runs quickly"
 5. "En bok er interessant." - "A book is interesting."
 6. "Et fjell er høyt." - "A mountain is tall"
 
@@ -47,12 +47,15 @@ custom_grammar = CFG.fromstring("""
     Adj -> 'stort' | 'interessant' | 'høyt' | 'kald'
 """)
 
+
 # Create a parser with the defined grammar
 custom_parser = nltk.ChartParser(custom_grammar)
 
 # Define a custom tokenizer
 def custom_tokenize(sentence):
+    # Tokenize the sentence using nltk's word_tokenize
     tokens = nltk.word_tokenize(sentence)
+    # Remove punctuation tokens
     tokens = [token.lower() for token in tokens if token.isalnum()]
     return tokens
 
@@ -61,9 +64,9 @@ sentences = [
     "En hund spiser mat.",
     "Et hus er stort.",
     "En katt løper raskt.",
-    "Solen varmer jorden.",
+    "En hund løper raskt.",
     "En bok er interessant.",
-    "Regnet faller fort."
+    "Et fjell er høyt.",
 ]
 
 # Tokenize and parse each sentence using the custom tokenizer
