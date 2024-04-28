@@ -76,4 +76,49 @@ for sentence in sentences:
             tree.pretty_print()
     else:
         print(f"No parse tree found for '{sentence}'")
+```
+## Implementation Steps
+
+1. **Import NLTK and CFG Class**: First, we import the necessary components from NLTK. We'll utilize the CFG class to create a grammar framework that captures the structure of our language.
+
+    ```python
+    from nltk import CFG
+    ```
+
+2. **Define Context-Free Grammar**: We define a CFG that represents the structure of our language. This CFG includes productions for sentences (S), noun phrases (NP), verb phrases (VP), determiners (Det), nouns (N), verbs (V), adjectives (Adj), and adverbs (Adv). We also provide a lexicon of words to populate the grammar.
+
+    ```python
+    custom_grammar = CFG.fromstring("""
+        S -> NP VP
+        NP -> Det N | N | Det Adj N
+        Det -> 'en' | 'et' | 'solen' | 'jorden' | 'regnet'
+        N -> 'bil' | 'bok' | 'hus' | 'hund' | 'katt' | 'mat' | 'vann' | 'fjell' | 'skog' | 'blomst' | 'sol' | 'måne' | 'stjerne' | 'fugl' | 'fisk' | 'sjø' | 'elv' | 'snø' | 'is' | 'varme' | 'kald' | 'varm' | 'regn' | 'vind' | 'vær' | 'jord' | 'himmel' | 'natt' | 'dag' | 'tid' | 'fuglene'
+        VP -> V NP | V Adj | V Adv
+        V -> 'er' | 'spiser' | 'bor' | 'løper' | 'flyr' | 'fryser' | 'varmer' | 'regner' | 'blåser' | 'faller' | 'flyr'
+        Adv -> 'fort' | 'langsamt' | 'raskt' | 'mye'
+        Adj -> 'stort' | 'interessant' | 'høyt' | 'kald'
+    """)
+    ```
+
+3. **Create Parser**: We generate a parser using the defined CFG. This parser dissects sentences into individual words and determines whether they adhere to the rules established in our grammar.
+
+    ```python
+    custom_parser = nltk.ChartParser(custom_grammar)
+    ```
+
+4. **Tokenize and Parse Sentences**: Finally, we tokenize and parse each sentence using the custom tokenizer. If a parse tree is found, it is printed to the console; otherwise, a message indicating that no parse tree was found is displayed.
+
+    ```python
+    for sentence in sentences:
+        tokens = custom_tokenize(sentence)
+        trees = list(custom_parser.parse(tokens))
+        if trees:
+            print(f"Parse tree for '{sentence}':")
+            for tree in trees:
+                tree.pretty_print()
+        else:
+            print(f"No parse tree found for '{sentence}'")
+    ```
+
+
 
