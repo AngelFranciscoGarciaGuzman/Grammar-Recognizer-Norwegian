@@ -119,6 +119,61 @@ for sentence in sentences:
         else:
             print(f"No parse tree found for '{sentence}'")
     ```
+## Testing
+As mentioned earlier, after processing the program with the 6 provided sentences, we would obtain corresponding tree structures as outputs.
 
+Parse tree for 'En hund spiser mat.':
+              S                
+      ________|__________       
+     |                   VP    
+     |              _____|___   
+     NP            |         NP
+  ___|___          |         |  
+Det      N         V         N 
+ |       |         |         |  
+ en     hund     spiser     mat
 
+Parse tree for 'Et hus er stort.':
+             S               
+      _______|_______         
+     NP              VP      
+  ___|___         ___|____    
+Det      N       V       Adj 
+ |       |       |        |   
+ et     hus      er     stort
 
+Parse tree for 'En katt l�per raskt.':
+              S                 
+      ________|_________         
+     NP                 VP      
+  ___|___           ____|____    
+Det      N         V        Adv 
+ |       |         |         |   
+ en     katt     l�per     raskt
+
+Parse tree for 'En hund l�per raskt.':
+              S                 
+      ________|_________         
+     NP                 VP      
+  ___|___           ____|____    
+Det      N         V        Adv 
+ |       |         |         |   
+ en     hund     l�per     raskt
+
+Parse tree for 'En bok er interessant.':
+             S                     
+      _______|_______               
+     NP              VP            
+  ___|___         ___|_______       
+Det      N       V          Adj    
+ |       |       |           |      
+ en     bok      er     interessant
+
+Parse tree for 'Et fjell er h�yt.':
+               S              
+      _________|_______        
+     NP                VP     
+  ___|____          ___|___    
+Det       N        V      Adj 
+ |        |        |       |   
+ et     fjell      er     h�yt
