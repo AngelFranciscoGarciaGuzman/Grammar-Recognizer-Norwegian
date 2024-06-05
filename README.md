@@ -122,6 +122,33 @@ for sentence in sentences:
         else:
             print(f"No parse tree found for '{sentence}'")
     ```
+
+The time complexity of this code runs as follows:
+
+### 1. Tokenizing with nltk.word_tokenize:
+
+The nltk.word_tokenize function processes the input string and splits it into tokens.
+This function generally operates in linear time relative to the length of the input string, as it processes each character once. Therefore, this step has a time complexity of O(n)
+
+### 2. Lowercasing and Filtering Tokens:
+
+The list comprehension [token.lower() for token in tokens if token.isalnum()] iterates over the list of tokens.
+For each token, it performs two operations: checking if the token is alphanumeric and converting it to lowercase.
+The number of tokens is proportional to the number of characters in the input sentence, so if there are "m" tokens, this step also has a complexity of O(m)
+
+Combining the steps we have a complexity of O(n) considering that both processes have the same time complexity.
+
+### 3. Parsing:
+
+The time of Parsing depends on the length of the sentence that has been tokenized. (I)
+The parsing depends on the complexity of the grammar we are using. (g)
+The "chart parser" has a worst-case time complexity of O(n^3)
+
+So overall the time complexity for parsing is O(I^3 * g)
+
+Combining the tokenizing process and the parsing process we have a complexity of: <strong>O(n) + O(I^3 * g)</strong>
+
+
 ## Testing
 As mentioned earlier, after processing the program with the 6 provided sentences, we would obtain corresponding tree structures as outputs.
 
