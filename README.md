@@ -140,11 +140,11 @@ Combining the steps we have a complexity of O(n) considering that both processes
 
 ### 3. Parsing:
 
-The time of Parsing depends on the length of the sentence that has been tokenized. (I)
-The parsing depends on the complexity of the grammar we are using. (g)
-The "chart parser" has a worst-case time complexity of O(n^3)
+The time of Parsing depends on the length of the sentence that has been tokenized (I).
+The parsing depends on the complexity of the grammar we are using (g).
+The "chart parser" has a worst-case time complexity of O(n^3).
 
-So overall the time complexity for parsing is O(I^3 * g)
+So overall the time complexity for parsing is O(I^3 * g).
 
 Combining the tokenizing process and the parsing process we have a complexity of: <strong>O(n) + O(I^3 * g)</strong>
 
